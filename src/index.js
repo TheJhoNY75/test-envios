@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Router from './Router';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import GlobalStyle from './styles'
+import GlobalStyle from './styles';
 
 ReactDOM.render(
   <React.StrictMode>

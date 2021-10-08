@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { HomeCont } from "../styles/pages/Home.styled";
+import { OrdersCont } from "../styles/pages/Orders.styled";
 import Orden from "../components/Orden";
+// import { Context } from "../context/Context";
 
-const Home = () => {
+const Orders = () => {
   const [data, setData] = useState(null);
   const [index, setIndex] = useState(null);
   useEffect(() => {
@@ -23,26 +24,26 @@ const Home = () => {
       fetchData();
     }
   });
-  console.log(data);
   return (
-    <HomeCont>
-      <div className="homeCont">
-        <h1 className="title">Ordenes</h1>
+    <OrdersCont>
+      <div className="ordersCont">
+        <h1 className="title">Orders</h1>
         <div className="ordenes">
           {data != null ? (
             data.orders.map((data, i) => (
               <Orden 
+                key={i}
                 data={data} 
                 state={index === i} 
                 onClick={() => index === i ? setIndex(null) : setIndex(i)} 
               />
             ))
           ) : (
-            <p> No hay ordenes para mostar </p>
+            <p> No Orders </p>
           )}
         </div>
       </div>
-    </HomeCont>
+    </OrdersCont>
   );
 };
-export default Home;
+export default Orders;
